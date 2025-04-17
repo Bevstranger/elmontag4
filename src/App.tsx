@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   HomeIcon,
@@ -7,28 +8,26 @@ import {
   BriefcaseIcon,
   ClockIcon,
   CogIcon,
+  VideoCameraIcon, // Add this
+  ShieldCheckIcon, // Add this
+  EnvelopeIcon, // Add this import
 } from "@heroicons/react/24/outline";
 
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <Router>
-      <div
-        className="min-h-screen bg-[url(/public/2.jpg)] bg-contain bg-center flex flex-col"
-        style={
-          {
-            // backgroundImage: "url('/2.jpg')",
-          }
-        }
-      >
-        <nav className="bg-[#1e1e1eb3] text-white shadow-md shadow-black/25">
-          <div className="max-w-[90em] mx-auto px-4">
+      <div className="min-h-screen bg-[url(/public/2.jpg)] bg-cover bg-fixed bg-center flex flex-col">
+        <nav className="bg-[#000000db] text-white shadow-md shadow-black/25 sticky top-0 z-40">
+          <div className="container mx-auto px-4 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <Link to="/" className="text-2xl font-bold">
+                <Link to="/" className="text-xl md:text-2xl font-bold">
                   ЭлектроМонтаж
                 </Link>
               </div>
-              <div className="flex space-x-4">
+              <div className="hidden md:flex space-x-4">
                 <Link
                   to="/"
                   className="flex items-center px-3 py-2 rounded-md hover:bg-blue-500"
@@ -58,11 +57,80 @@ function App() {
                   Контакты
                 </Link>
               </div>
+              {/* Add mobile menu button */}
+              <div className="md:hidden">
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="p-2 hover:bg-blue-800 rounded-md"
+                >
+                  <svg
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
+
+            {/* Mobile menu dropdown */}
+            {isMobileMenuOpen && (
+              <div className="md:hidden">
+                <div className="px-2 pt-2 pb-3 space-y-1 bg-gradient-to-b from-[#1e1e1eb3] to-[#1e1e1e] rounded-b-lg">
+                  <Link
+                    to="/"
+                    className="block px-3 py-2 rounded-md hover:bg-blue-500 text-white"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <div className="flex items-center">
+                      <HomeIcon className="h-5 w-5 mr-1" />
+                      Главная
+                    </div>
+                  </Link>
+                  <Link
+                    to="/services"
+                    className="block px-3 py-2 rounded-md hover:bg-blue-800 text-white"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <div className="flex items-center">
+                      <WrenchScrewdriverIcon className="h-5 w-5 mr-1" />
+                      Услуги
+                    </div>
+                  </Link>
+                  <Link
+                    to="/projects"
+                    className="block px-3 py-2 rounded-md hover:bg-blue-800 text-white"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <div className="flex items-center">
+                      <ClipboardDocumentListIcon className="h-5 w-5 mr-1" />
+                      Проекты
+                    </div>
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="block px-3 py-2 rounded-md hover:bg-blue-800 text-white"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <div className="flex items-center">
+                      <PhoneIcon className="h-5 w-5 mr-1" />
+                      Контакты
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
         </nav>
 
-        <main className=" mx-[20px] px-4 py-8 flex-grow">
+        <main className="container mx-auto px-4 lg:px-8 py-8 flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
@@ -71,8 +139,9 @@ function App() {
           </Routes>
         </main>
 
-        <footer className="bg-gray-800 text-white mt-auto">
-          <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="h-24 bg-gradient-to-b from-transparent to-gray-800"></div>
+        <footer className="bg-gray-800 text-white">
+          <div className="container mx-auto px-4 lg:px-8 py-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
                 <h3 className="text-lg font-semibold mb-2">О нас</h3>
@@ -83,20 +152,38 @@ function App() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-2">Контакты</h3>
-                <p className="text-gray-300">Телефон: +7 (495) 123-45-67</p>
-                <p className="text-gray-300">Email: info@electromont.ru</p>
+                <div className="space-y-2">
+                  <p className="text-gray-300 flex items-center">
+                    <PhoneIcon className="h-5 w-5 mr-2" />
+                    <a
+                      href="tel:+79045929581"
+                      className="hover:text-blue-400 transition-colors"
+                    >
+                      +7 (904) 592-95-81
+                    </a>
+                  </p>
+                  <p className="text-gray-300 flex items-center">
+                    <EnvelopeIcon className="h-5 w-5 mr-2" />
+                    <a
+                      href="mailto:iz904@ya.ru"
+                      className="hover:text-blue-400 transition-colors"
+                    >
+                      iz904@ya.ru
+                    </a>
+                  </p>
+                </div>
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-2">Адрес</h3>
                 <p className="text-gray-300">
-                  г. Москва, ул. Электрическая, д. 1
+                  г. Муром, Владимирская область, улица Прудовая, д.6
                 </p>
                 <p className="text-gray-300">Пн-Вс: 8:00 - 22:00</p>
               </div>
             </div>
             <div className="mt-8 text-center">
               <p className="text-gray-300">
-                © 2024 ЭлектроМонтаж. Все права защищены.
+                © 2025 ИП ЗАБАШТАНОВ АЛЕКСЕЙ ВИКТОРОВИЧ. Все права защищены.
               </p>
             </div>
           </div>
@@ -108,9 +195,9 @@ function App() {
 
 function Home() {
   return (
-    <div className="space-y-12">
-      <section className="text-center py-16 bg-black bg-opacity-80 rounded-lg text-white">
-        <h1 className="text-5xl font-bold mb-6">
+    <div className="max-w-7xl mx-auto space-y-12">
+      <section className="text-center py-12 md:py-16 bg-black bg-opacity-80 rounded-lg text-white px-4">
+        <h1 className="text-3xl md:text-5xl font-bold mb-6">
           Профессиональный электромонтаж
         </h1>
         <p className="text-xl mb-8">
@@ -125,7 +212,7 @@ function Home() {
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <div className="bg-[#1e1e1eb3] p-6 rounded-lg shadow-md">
+        <div className="bg-[#000000db] p-6 rounded-lg shadow-md">
           <h3 className="text-xl text-[#61d0ff] font-semibold mb-4">
             Большой опыт
           </h3>
@@ -133,13 +220,13 @@ function Home() {
             Более 15 лет успешной работы в сфере электромонтажа
           </p>
         </div>
-        <div className="bg-[#1e1e1eb3] p-6 rounded-lg shadow-md">
+        <div className="bg-[#000000db] p-6 rounded-lg shadow-md">
           <h3 className="text-xl text-[#61d0ff] font-semibold mb-4">
             Надежность
           </h3>
           <p className="text-gray-300">Гарантия на все виды работ до 5 лет</p>
         </div>
-        <div className="bg-[#1e1e1eb3] p-6 rounded-lg shadow-md">
+        <div className="bg-[#000000db] p-6 rounded-lg shadow-md">
           <h3 className="text-xl text-[#61d0ff] font-semibold mb-4">
             Оперативность
           </h3>
@@ -151,6 +238,9 @@ function Home() {
 }
 
 function Services() {
+  const [selectedService, setSelectedService] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const services = [
     {
       title: "Электромонтаж в квартирах и домах",
@@ -196,29 +286,97 @@ function Services() {
         "Срочный вызов электрика",
       ],
     },
+    {
+      title: "Слаботочные системы",
+      icon: <ShieldCheckIcon className="h-8 w-8 text-blue-500" />,
+      items: [
+        "Монтаж систем видеонаблюдения",
+        "Установка охранной сигнализации",
+        "Монтаж пожарной сигнализации",
+        "Системы контроля доступа (СКУД)",
+        "Структурированные кабельные сети",
+        "Домофонные системы",
+      ],
+    },
   ];
 
   return (
-    <div className="space-y-8">
-      <h2 className="text-3xl font-bold text-gray-900">Наши услуги</h2>
+    <div className="max-w-7xl mx-auto space-y-8">
+      <h2 className="text-3xl font-bold text-white text-center">Наши услуги</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {services.map((service, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300"
+            onClick={() => {
+              setSelectedService(service);
+              setIsModalOpen(true);
+            }}
+            className=" bg-[#000000db] rounded-lg shadow-md p-6 hover:shadow-xl hover:shadow-blue-600/60 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
           >
             <div className="flex items-center mb-4">
               {service.icon}
-              <h3 className="text-xl font-semibold ml-4">{service.title}</h3>
+              <h3 className="text-xl text-blue-500 font-semibold ml-4">
+                {service.title}
+              </h3>
             </div>
-            <ul className="list-disc list-inside text-gray-600 space-y-2">
+            <ul className="list-disc list-inside text-white space-y-2">
               {service.items.map((item, itemIndex) => (
-                <li key={itemIndex}>{item}</li>
+                <li key={itemIndex} className="flex items-start space-x-2">
+                  <span className="text-blue-500 shrink-0">▸</span>
+                  <span>{item}</span>
+                </li>
               ))}
             </ul>
           </div>
         ))}
       </div>
+
+      {/* Service Contact Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[0]">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-semibold text-gray-900">
+                Заявка на {selectedService?.title}
+              </h3>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                ✕
+              </button>
+            </div>
+            <form className="space-y-4">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Ваше имя"
+                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-black/80 text-white border-gray-600"
+                />
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  placeholder="Телефон"
+                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <textarea
+                  placeholder="Дополнительная информация"
+                  className="w-full px-4 py-2 border rounded-md h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-blue-700 text-white px-6 py-2 rounded-md hover:bg-blue-800 transition duration-200"
+              >
+                Отправить заявку
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -254,14 +412,21 @@ function Projects() {
   ];
 
   return (
-    <div className="space-y-8">
-      <h2 className="text-3xl font-bold text-gray-900">Наши проекты</h2>
+    <div className="max-w-7xl mx-auto space-y-8">
+      <h2 className="text-3xl font-bold text-white text-center">
+        Наши проекты
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-4">{project.title}</h3>
-            <p className="text-gray-600 mb-4">{project.description}</p>
-            <p className="text-gray-500 text-sm">{project.details}</p>
+          <div
+            key={index}
+            className="bg-black/60 p-6 rounded-lg shadow-md hover:shadow-xl hover:shadow-blue-600/60 transition-all duration-300"
+          >
+            <h3 className="text-xl text-blue-500 font-semibold mb-4">
+              {project.title}
+            </h3>
+            <p className="text-gray-300 mb-4">{project.description}</p>
+            <p className="text-gray-400 text-sm">{project.details}</p>
           </div>
         ))}
       </div>
@@ -271,58 +436,88 @@ function Projects() {
 
 function Contact() {
   return (
-    <div className="space-y-8">
-      <h2 className="text-3xl font-bold text-gray-900">Свяжитесь с нами</h2>
-      <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="max-w-7xl mx-auto space-y-8">
+      <h2 className="text-3xl font-bold text-white text-center">
+        Свяжитесь с нами
+      </h2>
+      <div className="bg-[#000000db] p-6 rounded-lg shadow-md">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-xl font-semibold mb-4">
+            <h3 className="text-xl text-blue-500 font-semibold mb-4">
               Контактная информация
             </h3>
-            <ul className="space-y-3 text-gray-600">
+            <ul className="space-y-3 text-gray-300">
               <li className="flex items-center">
-                <PhoneIcon className="h-5 w-5 mr-2" />
-                +7 (495) 123-45-67
+                <PhoneIcon className="h-5 w-5 mr-2 text-blue-500" />
+                <a
+                  href="tel:+79045929581"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  +7 (904) 592-95-81
+                </a>
               </li>
-              <li>Email: info@electromont.ru</li>
-              <li>Адрес: г. Москва, ул. Электрическая, д. 1</li>
-              <li>Режим работы: Пн-Вс: 8:00 - 22:00</li>
+              <li className="flex items-center">
+                <EnvelopeIcon className="h-5 w-5 mr-2 text-blue-500" />
+                <a
+                  href="mailto:iz904@ya.ru"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  iz904@ya.ru
+                </a>
+              </li>
+              <li className="text-gray-300">
+                Адрес: г. Муром, Владимирская область, улица Прудовая, д.6
+              </li>
+              <li className="text-gray-300">
+                Режим работы: Пн-Вс: 8:00 - 22:00
+              </li>
             </ul>
             <div className="mt-6">
-              <h4 className="font-semibold mb-2">Мы работаем:</h4>
-              <ul className="text-gray-600">
-                <li>• По всей Москве</li>
-                <li>• В Московской области</li>
-                <li>• В ближайшем Подмосковье</li>
+              <h4 className="text-blue-500 font-semibold mb-2">Мы работаем:</h4>
+              <ul className="text-gray-300">
+                <li className="flex items-center space-x-2">
+                  <span className="text-blue-500">▸</span>
+                  <span>По всей Москве</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="text-blue-500">▸</span>
+                  <span>В Московской области</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="text-blue-500">▸</span>
+                  <span>В ближайшем Подмосковье</span>
+                </li>
               </ul>
             </div>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-4">Оставить заявку</h3>
+            <h3 className="text-xl text-blue-500 font-semibold mb-4">
+              Оставить заявку
+            </h3>
             <form className="space-y-4">
               <div>
                 <input
                   type="text"
                   placeholder="Ваше имя"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-black/80 text-white border-gray-600"
                 />
               </div>
               <div>
                 <input
                   type="tel"
                   placeholder="Телефон"
-                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-black/80 text-white border-gray-600"
                 />
               </div>
               <div>
                 <textarea
                   placeholder="Опишите требуемые работы"
-                  className="w-full px-4 py-2 border rounded-md h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border rounded-md h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-black/60 text-white border-gray-600"
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="bg-blue-700 text-white px-6 py-2 rounded-md hover:bg-blue-800 transition duration-200"
+                className="w-full bg-blue-700 text-white px-6 py-2 rounded-md hover:bg-blue-800 transition duration-200"
               >
                 Отправить заявку
               </button>
