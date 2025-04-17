@@ -186,8 +186,9 @@ function App() {
             </div>
             <div className="mt-8 text-center">
               <p className="text-gray-300">
-                © 2025 ИП ЗАБАШТАНОВ АЛЕКСЕЙ ВИКТОРОВИЧ. Все права защищены.
+                © 2025 ИП ЗАБАШТАНОВ АЛЕКСЕЙ ВИКТОРОВИЧ
               </p>
+              <p className="text-gray-300">Все права защищены</p>
             </div>
           </div>
         </footer>
@@ -215,7 +216,7 @@ function Home() {
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <div className="bg-[#000000db] p-6 rounded-lg shadow-md">
+        <div className="bg-[#000000db] p-6 rounded-lg shadow-md shadow-black">
           <h3 className="text-xl text-[#61d0ff] font-semibold mb-4">
             Большой опыт
           </h3>
@@ -223,13 +224,13 @@ function Home() {
             Более 15 лет успешной работы в сфере электромонтажа
           </p>
         </div>
-        <div className="bg-[#000000db] p-6 rounded-lg shadow-md">
+        <div className="bg-[#000000db] p-6 rounded-lg shadow-md shadow-black">
           <h3 className="text-xl text-[#61d0ff] font-semibold mb-4">
             Надежность
           </h3>
           <p className="text-gray-300">Гарантия на все виды работ до 5 лет</p>
         </div>
-        <div className="bg-[#000000db] p-6 rounded-lg shadow-md">
+        <div className="bg-[#000000db] p-6 rounded-lg shadow-md shadow-black">
           <h3 className="text-xl text-[#61d0ff] font-semibold mb-4">
             Оперативность
           </h3>
@@ -322,7 +323,7 @@ function Services() {
               setSelectedService(service);
               setIsModalOpen(true);
             }}
-            className=" bg-[#000000db] rounded-lg shadow-md p-6 hover:shadow-xl hover:shadow-blue-600/60 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+            className=" bg-[#000000db] rounded-lg shadow-md shadow-black p-6 hover:shadow-xl hover:shadow-blue-600/60 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
           >
             <div className="flex items-center mb-4">
               {service.icon}
