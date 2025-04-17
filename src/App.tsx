@@ -32,7 +32,7 @@ function App() {
               </div>
               <div className="hidden md:flex space-x-4">
                 <Link
-                  to="/"
+                  to="/elmontag4/"
                   className="flex items-center px-3 py-2 rounded-md hover:bg-blue-500"
                 >
                   <HomeIcon className="h-5 w-5 mr-1" />
