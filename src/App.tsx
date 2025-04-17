@@ -9,7 +9,7 @@ import {
   ClockIcon,
   CogIcon,
   VideoCameraIcon, // Add this
-  ShieldCheckIcon, // Add this
+  // ShieldCheckIcon,/ // Add this
   EnvelopeIcon, // Add this import
 } from "@heroicons/react/24/outline";
 
@@ -296,7 +296,7 @@ function Services() {
     },
     {
       title: "Слаботочные системы",
-      icon: <ShieldCheckIcon className="h-8 w-8 text-blue-500" />,
+      icon: <VideoCameraIcon className="h-8 w-8 text-blue-500" />,
       items: [
         "Монтаж систем видеонаблюдения",
         "Установка охранной сигнализации",
