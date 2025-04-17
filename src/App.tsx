@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   HomeIcon,
@@ -238,7 +238,15 @@ function Home() {
 }
 
 function Services() {
-  const [selectedService, setSelectedService] = useState(null);
+  interface ServiceType {
+    title: string;
+    icon: JSX.Element;
+    items: string[];
+  }
+
+  const [selectedService, setSelectedService] = useState<ServiceType | null>(
+    null
+  );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const services = [
