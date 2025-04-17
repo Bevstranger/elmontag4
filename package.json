@@ -1,9 +1,9 @@
 {
-  "name": "elmontag1",
+  "name": "elmontag4",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://bevstranger.github.io/elmontag1"
+  "homepage": "https://bevstranger.github.io/elmontag4"
 ,
   "scripts": {
     "dev": "vite",
