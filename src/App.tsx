@@ -132,10 +132,10 @@ function App() {
 
         <main className="container mx-auto px-4 lg:px-8 py-8 flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/elmontag4/" element={<Home />} />
+            <Route path="/elmontag4/services" element={<Services />} />
+            <Route path="/elmontag4/projects" element={<Projects />} />
+            <Route path="/elmontag4/contact" element={<Contact />} />
           </Routes>
         </main>
 
