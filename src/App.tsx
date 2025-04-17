@@ -88,7 +88,7 @@ function App() {
               <div className="md:hidden">
                 <div className="px-2 pt-2 pb-3 space-y-1 bg-gradient-to-b from-[#1e1e1eb3] to-[#1e1e1e] rounded-b-lg">
                   <Link
-                    to="/"
+                    to="/elmontag4/"
                     className="block px-3 py-2 rounded-md hover:bg-blue-500 text-white"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -98,7 +98,7 @@ function App() {
                     </div>
                   </Link>
                   <Link
-                    to="/services"
+                    to="/elmontag4/services"
                     className="block px-3 py-2 rounded-md hover:bg-blue-800 text-white"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -108,7 +108,7 @@ function App() {
                     </div>
                   </Link>
                   <Link
-                    to="/projects"
+                    to="/elmontag4/projects"
                     className="block px-3 py-2 rounded-md hover:bg-blue-800 text-white"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -118,7 +118,7 @@ function App() {
                     </div>
                   </Link>
                   <Link
-                    to="/contact"
+                    to="/elmontag4/contact"
                     className="block px-3 py-2 rounded-md hover:bg-blue-800 text-white"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -207,7 +207,7 @@ function Home() {
           Качественные электромонтажные работы любой сложности
         </p>
         <Link
-          to="/services"
+          to="/elmontag4/services"
           className="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition"
         >
           Наши услуги
