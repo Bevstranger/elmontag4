@@ -23,7 +23,10 @@ function App() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <Link to="/" className="text-xl md:text-2xl font-bold">
+                <Link
+                  to="/elmontag4/"
+                  className="text-xl md:text-2xl font-bold"
+                >
                   ЭлектроМонтаж
                 </Link>
               </div>
@@ -36,21 +39,21 @@ function App() {
                   Главная
                 </Link>
                 <Link
-                  to="/services"
+                  to="/elmontag4/services"
                   className="flex items-center px-3 py-2 rounded-md hover:bg-blue-800"
                 >
                   <WrenchScrewdriverIcon className="h-5 w-5 mr-1" />
                   Услуги
                 </Link>
                 <Link
-                  to="/projects"
+                  to="/elmontag4/projects"
                   className="flex items-center px-3 py-2 rounded-md hover:bg-blue-800"
                 >
                   <ClipboardDocumentListIcon className="h-5 w-5 mr-1" />
                   Проекты
                 </Link>
                 <Link
-                  to="/contact"
+                  to="/elmontag4/contact"
                   className="flex items-center px-3 py-2 rounded-md hover:bg-blue-800"
                 >
                   <PhoneIcon className="h-5 w-5 mr-1" />
@@ -139,7 +142,7 @@ function App() {
           </Routes>
         </main>
 
-        <div className="h-24 bg-gradient-to-b from-transparent to-gray-800"></div>
+        <div className="h-4 bg-gradient-to-b from-transparent to-gray-800"></div>
         <footer className="bg-gray-800 text-white">
           <div className="container mx-auto px-4 lg:px-8 py-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
