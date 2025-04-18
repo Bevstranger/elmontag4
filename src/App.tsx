@@ -19,52 +19,49 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-[url(/public/2.jpg)] bg-cover bg-fixed bg-center flex flex-col">
-        <nav className="bg-[#000000db] text-white shadow-md shadow-black/25 sticky top-0 z-40">
+        <nav className="bg-gradient-to-r from-black via-[#001d3d] to-black text-white shadow-lg shadow-blue-900/20 sticky top-0 z-40">
           <div className="container mx-auto px-4 lg:px-8">
-            <div className="flex items-center justify-between h-16">
+            <div className="flex items-center justify-between h-20">
               <div className="flex items-center">
-                <Link
-                  to="/elmontag4/"
-                  className="text-xl md:text-2xl font-bold"
-                >
-                  ЭлектроМонтаж
+                <Link to="/elmontag4/" className="relative group">
+                  <div className="flex items-center">
+                    <div className="text-3xl md:text-4xl font-bold relative">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-300">⚡</span>
+                      <span className="ml-2 bg-gradient-to-br from-white via-blue-200 to-blue-400 bg-clip-text text-transparent">ELECTRO</span>
+                    </div>
+                  </div>
                 </Link>
               </div>
-              <div className="hidden md:flex space-x-4">
-                <Link
-                  to="/elmontag4/"
-                  className="flex items-center px-3 py-2 rounded-md hover:bg-blue-500"
-                >
-                  <HomeIcon className="h-5 w-5 mr-1" />
-                  Главная
+              <div className="hidden md:flex items-center space-x-6">
+                <Link to="/elmontag4/" className="nav-link group">
+                  <div className="relative px-4 py-2">
+                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">Главная</span>
+                    <div className="absolute inset-0 h-full w-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 group-hover:w-full transition-all duration-300 rounded-lg"></div>
+                  </div>
                 </Link>
-                <Link
-                  to="/elmontag4/services"
-                  className="flex items-center px-3 py-2 rounded-md hover:bg-blue-800"
-                >
-                  <WrenchScrewdriverIcon className="h-5 w-5 mr-1" />
-                  Услуги
+                <Link to="/elmontag4/services" className="nav-link group">
+                  <div className="relative px-4 py-2">
+                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">Услуги</span>
+                    <div className="absolute inset-0 h-full w-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 group-hover:w-full transition-all duration-300 rounded-lg"></div>
+                  </div>
                 </Link>
-                <Link
-                  to="/elmontag4/projects"
-                  className="flex items-center px-3 py-2 rounded-md hover:bg-blue-800"
-                >
-                  <ClipboardDocumentListIcon className="h-5 w-5 mr-1" />
-                  Проекты
+                <Link to="/elmontag4/projects" className="nav-link group">
+                  <div className="relative px-4 py-2">
+                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">Проекты</span>
+                    <div className="absolute inset-0 h-full w-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 group-hover:w-full transition-all duration-300 rounded-lg"></div>
+                  </div>
                 </Link>
-                <Link
-                  to="/elmontag4/contact"
-                  className="flex items-center px-3 py-2 rounded-md hover:bg-blue-800"
-                >
-                  <PhoneIcon className="h-5 w-5 mr-1" />
-                  Контакты
+                <Link to="/elmontag4/contact" className="nav-link group">
+                  <div className="relative px-4 py-2">
+                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">Контакты</span>
+                    <div className="absolute inset-0 h-full w-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 group-hover:w-full transition-all duration-300 rounded-lg"></div>
+                  </div>
                 </Link>
               </div>
-              {/* Add mobile menu button */}
               <div className="md:hidden">
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="p-2 hover:bg-blue-800 rounded-md"
+                  className="p-2 hover:bg-blue-600/20 rounded-md transition-colors duration-300"
                 >
                   <svg
                     className="h-6 w-6"
@@ -86,46 +83,34 @@ function App() {
             {/* Mobile menu dropdown */}
             {isMobileMenuOpen && (
               <div className="md:hidden">
-                <div className="px-2 pt-2 pb-3 space-y-1 bg-gradient-to-b from-[#1e1e1eb3] to-[#1e1e1e] rounded-b-lg">
+                <div className="px-2 pt-2 pb-3 space-y-1 bg-gradient-to-b from-[#001d3d] to-black rounded-b-lg">
                   <Link
                     to="/elmontag4/"
-                    className="block px-3 py-2 rounded-md hover:bg-blue-500 text-white"
+                    className="block px-4 py-2 rounded-md text-white hover:bg-blue-600/20 transition-colors duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <div className="flex items-center">
-                      <HomeIcon className="h-5 w-5 mr-1" />
-                      Главная
-                    </div>
+                    Главная
                   </Link>
                   <Link
                     to="/elmontag4/services"
-                    className="block px-3 py-2 rounded-md hover:bg-blue-800 text-white"
+                    className="block px-4 py-2 rounded-md text-white hover:bg-blue-600/20 transition-colors duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <div className="flex items-center">
-                      <WrenchScrewdriverIcon className="h-5 w-5 mr-1" />
-                      Услуги
-                    </div>
+                    Услуги
                   </Link>
                   <Link
                     to="/elmontag4/projects"
-                    className="block px-3 py-2 rounded-md hover:bg-blue-800 text-white"
+                    className="block px-4 py-2 rounded-md text-white hover:bg-blue-600/20 transition-colors duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <div className="flex items-center">
-                      <ClipboardDocumentListIcon className="h-5 w-5 mr-1" />
-                      Проекты
-                    </div>
+                    Проекты
                   </Link>
                   <Link
                     to="/elmontag4/contact"
-                    className="block px-3 py-2 rounded-md hover:bg-blue-800 text-white"
+                    className="block px-4 py-2 rounded-md text-white hover:bg-blue-600/20 transition-colors duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <div className="flex items-center">
-                      <PhoneIcon className="h-5 w-5 mr-1" />
-                      Контакты
-                    </div>
+                    Контакты
                   </Link>
                 </div>
               </div>
@@ -143,8 +128,8 @@ function App() {
         </main>
 
         <div className="h-4 bg-gradient-to-b from-transparent to-gray-800"></div>
-        <footer className="bg-gray-800 text-white">
-          <div className="container mx-auto px-4 lg:px-8 py-6">
+        <footer className="bg-gray-800 text-white relative before:absolute before:inset-0 before:bg-[linear-gradient(90deg,transparent_39px,#ffffff0d_39px),linear-gradient(0deg,transparent_39px,#ffffff0d_39px)] before:bg-[size:40px_40px] before:opacity-50 after:absolute after:inset-0 after:bg-[radial-gradient(circle,#ffffff05_1px,transparent_1px)] after:bg-[size:10px_10px] border-t border-gray-700/50">
+          <div className="container mx-auto px-4 lg:px-8 py-6 relative">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
                 <h3 className="text-lg font-semibold mb-2">О нас</h3>
@@ -158,19 +143,13 @@ function App() {
                 <div className="space-y-2">
                   <p className="text-gray-300 flex items-center">
                     <PhoneIcon className="h-5 w-5 mr-2" />
-                    <a
-                      href="tel:+79045929581"
-                      className="hover:text-blue-400 transition-colors"
-                    >
+                    <a href="tel:+79045929581" className="hover:text-blue-400 transition-colors">
                       +7 (904) 592-95-81
                     </a>
                   </p>
                   <p className="text-gray-300 flex items-center">
                     <EnvelopeIcon className="h-5 w-5 mr-2" />
-                    <a
-                      href="mailto:iz904@ya.ru"
-                      className="hover:text-blue-400 transition-colors"
-                    >
+                    <a href="mailto:iz904@ya.ru" className="hover:text-blue-400 transition-colors">
                       iz904@ya.ru
                     </a>
                   </p>
@@ -465,7 +444,7 @@ function Contact() {
             </h3>
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-center">
-                <PhoneIcon className="h-5 w-5 mr-2 text-blue-500" />
+                <PhoneIcon className="h-5 w-5 mr-2" />
                 <a
                   href="tel:+79045929581"
                   className="hover:text-blue-400 transition-colors"
@@ -474,7 +453,7 @@ function Contact() {
                 </a>
               </li>
               <li className="flex items-center">
-                <EnvelopeIcon className="h-5 w-5 mr-2 text-blue-500" />
+                <EnvelopeIcon className="h-5 w-5 mr-2" />
                 <a
                   href="mailto:iz904@ya.ru"
                   className="hover:text-blue-400 transition-colors"
