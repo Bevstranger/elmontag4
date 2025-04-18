@@ -2,8 +2,6 @@ import { JSX, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
   HomeIcon,
-  WrenchScrewdriverIcon,
-  ClipboardDocumentListIcon,
   PhoneIcon,
   BriefcaseIcon,
   ClockIcon,
@@ -26,8 +24,12 @@ function App() {
                 <Link to="/elmontag4/" className="relative group">
                   <div className="flex items-center">
                     <div className="text-3xl md:text-4xl font-bold relative">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-300">⚡</span>
-                      <span className="ml-2 bg-gradient-to-br from-white via-blue-200 to-blue-400 bg-clip-text text-transparent">ELECTRO</span>
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-300">
+                        ⚡
+                      </span>
+                      <span className="ml-2 bg-gradient-to-br from-white via-blue-200 to-blue-400 bg-clip-text text-transparent">
+                        ELECTRO
+                      </span>
                     </div>
                   </div>
                 </Link>
@@ -35,25 +37,33 @@ function App() {
               <div className="hidden md:flex items-center space-x-6">
                 <Link to="/elmontag4/" className="nav-link group">
                   <div className="relative px-4 py-2">
-                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">Главная</span>
+                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
+                      Главная
+                    </span>
                     <div className="absolute inset-0 h-full w-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 group-hover:w-full transition-all duration-300 rounded-lg"></div>
                   </div>
                 </Link>
                 <Link to="/elmontag4/services" className="nav-link group">
                   <div className="relative px-4 py-2">
-                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">Услуги</span>
+                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
+                      Услуги
+                    </span>
                     <div className="absolute inset-0 h-full w-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 group-hover:w-full transition-all duration-300 rounded-lg"></div>
                   </div>
                 </Link>
                 <Link to="/elmontag4/projects" className="nav-link group">
                   <div className="relative px-4 py-2">
-                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">Проекты</span>
+                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
+                      Проекты
+                    </span>
                     <div className="absolute inset-0 h-full w-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 group-hover:w-full transition-all duration-300 rounded-lg"></div>
                   </div>
                 </Link>
                 <Link to="/elmontag4/contact" className="nav-link group">
                   <div className="relative px-4 py-2">
-                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">Контакты</span>
+                    <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
+                      Контакты
+                    </span>
                     <div className="absolute inset-0 h-full w-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 group-hover:w-full transition-all duration-300 rounded-lg"></div>
                   </div>
                 </Link>
@@ -143,13 +153,19 @@ function App() {
                 <div className="space-y-2">
                   <p className="text-gray-300 flex items-center">
                     <PhoneIcon className="h-5 w-5 mr-2" />
-                    <a href="tel:+79045929581" className="hover:text-blue-400 transition-colors">
+                    <a
+                      href="tel:+79045929581"
+                      className="hover:text-blue-400 transition-colors"
+                    >
                       +7 (904) 592-95-81
                     </a>
                   </p>
                   <p className="text-gray-300 flex items-center">
                     <EnvelopeIcon className="h-5 w-5 mr-2" />
-                    <a href="mailto:iz904@ya.ru" className="hover:text-blue-400 transition-colors">
+                    <a
+                      href="mailto:iz904@ya.ru"
+                      className="hover:text-blue-400 transition-colors"
+                    >
                       iz904@ya.ru
                     </a>
                   </p>
@@ -324,7 +340,7 @@ function Services() {
 
       {/* Service Contact Modal */}
       {isModalOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[0]"
           onClick={(e) => {
             if (e.target === e.currentTarget) setIsModalOpen(false);
